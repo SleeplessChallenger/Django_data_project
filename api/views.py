@@ -8,6 +8,8 @@ import dateutil.parser as dparser
 from data_processing.injection_class import ExcelLoader
 
 
+loader = ExcelLoader()
+
 class DataLoader(APIView):
 	serializer_class = DataSerializer
 
@@ -33,6 +35,7 @@ class DataLoader(APIView):
 				status=status.HTTP_406_NOT_ACCEPTABLE)
 
 		isData = DataClass.objects.all()
+
 		if not isData:
 			# empty => dump data
 			self._insert_data(request)
@@ -48,7 +51,6 @@ class DataLoader(APIView):
 		table.objects.all().delete()
 
 	def _insert_data(self, request):
-		loader = ExcelLoader()
 		loader()
 
 

@@ -10,10 +10,14 @@ from data_processing.injection_class import ExcelLoader
 
 loader = ExcelLoader()
 
+
 class DataLoader(APIView):
 	serializer_class = DataSerializer
 
 	def get(self, request, server=None):
+		'''
+		To see all data
+		'''
 		if not server:
 			return Response(
 				{'message': "No server is provided"},
@@ -37,6 +41,7 @@ class DataLoader(APIView):
 		isData = DataClass.objects.all()
 
 		if not isData:
+
 			# empty => dump data
 			self._insert_data(request)
 		else:
@@ -54,12 +59,11 @@ class DataLoader(APIView):
 		loader()
 
 
-	# def _insert_data(self, request):
-	# 	serializer = self.serializer_class(request.data)
-	# 	if serializer.is_valid():
-	# 		serializer.save()
-	# 		return Response(serializer.data,
-	# 			status=status.HTTP_201_CREATED)
-	# 	else:
-	# 		return Response(serializer.errors,
-	# 			status=status.HTTP_409_CONFLICT)
+class DataExtractSQL(APIView):
+	def get(self, request, server=None):
+		pass
+
+
+class DataExtractPandas(APIView):
+	def get(self, request, server=None):
+		pass

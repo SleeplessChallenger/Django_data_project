@@ -1,0 +1,14 @@
+At first create DB and then change settings in Django.
+https://medium.com/@rudipy/how-to-connecting-postgresql-with-a-django-application-f479dc949a11
+
+1. Actions with posgtresql
+
+brew install postgresql
+brew services start postgresql
+
+Or, if you don't want/need a background service you can just run:
+  /usr/local/opt/postgresql/bin/postgres -D /usr/local/var/postgres
+
+2. Default port of Postgresql: 'PORT': '5432'
+
+3. psql postgres

@@ -13,7 +13,7 @@ class Loader(ABC):
 		raise NotImplemneterError("You didn't realize it")
 
 
-class ExcelLoader:
+class ExcelLoader(Loader):
 	'''
 	self.name can be changed
 	'''

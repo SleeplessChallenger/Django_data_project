@@ -1,6 +1,9 @@
 <h2>Django-data project</h2>
 
-In this project I implemented various actions with data by Django
+In this project I implemented various actions with data by Django.
+
+Deployed with docker: `docker push enoshima/django_data_app:tagname`
+And then run: `docker run --name data_cont -d -p 8000:8000 enoshima/django_data_app:latest`
 
 <ul>
 	<li>Load from Excel to DB</li>
